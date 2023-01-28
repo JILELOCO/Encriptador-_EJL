@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+  <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Encriptador de Textos</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/0cf3687c78.js" crossorigin="anonymous"></script>
+        <link rel="shortcut icon" href="image/iconoPestania.ico" type="image/x-icon">
+
+    </head>
+
+                <!--Trabajando_codigo_de_encriptador-->
+
+  <script>
+
+      function getFocus() {
+          let textArea = document.getElementById("textos_a_encriptar");
+          textArea.focus();
+      }
+
+      function copy() {
+        let texto = document.getElementById("escritura_resultado");
+        texto.select();
+        document.execCommand("copy");
+        Swal.fire({
+            icon: 'success',
+            iconColor: '#f2f2f2',
+            background: '#5A7099',
+            title: '¡Texto copiado!',
+            color:'#f2f2f2',
+            confirmButtonColor: '#5A7099',
+        });
+      }
+
+      function campoVacio(){
+        Swal.fire({
+            icon: 'error',
+            iconColor: '#f2f2f2',
+            background: '#5A7099',
+            title: '¡Vaya!',
+            color:'#f2f2f2',
+            confirmButtonColor: '#5A7099',
+            text: 'Ingresa un mensaje',
+          });
+      }
+      
+      function encriptar() {
+        let sinencriptar = document.getElementById("sinencriptar");
+        let resultado = document.getElementById("resultado");
+        let Boton_de_cuadro_de_resultado = document.getElementById("Boton_de_cuadro_de_resultado");
+        let texto = document.getElementById("textos_a_encriptar").value;
+        
+          if (texto.length!=0) {
+
+            if (/[^a-zñ ]/.test(texto)) {
+              Swal.fire({
+                iconColor: '#f2f2f2',
+                icon: 'error',
+                background: '#5A7099',
+                title: '¡Vaya!',
+                color:'#f2f2f2',
+                confirmButtonColor: '#5A7099',
+                text: 'Escribe texto a encriptar',
+              });
+
+            }else{
+
+              sinencriptar.style.display= "none";
+              resultado.style.display= "flex";
+              Boton_de_cuadro_de_resultado.style.display= "flex";
+              let texto_bytes = new TextEncoder().encode(texto);
+              let encriptado = new Uint8Array(texto_bytes).reduce((data, byte) => data + String.fromCharCode(byte), '');
+              document.getElementById("escritura_resultado").innerHTML = btoa(encriptado);
+            }
+          } else{
+          
+          campoVacio(); 
+            }
+      }
+
+      function desencriptar() {
+
+        let sinencriptar = document.getElementById("sinencriptar");
+        let resultado = document.getElementById("resultado");
+        let Boton_de_cuadro_de_resultado= document.getElementById("Boton_de_cuadro_de_resultado");
+        let texto_encriptado = document.getElementById("textos_a_encriptar").value;
+
+        if (texto_encriptado.length!=0) {
+
+          sinencriptar.style.display= "none";
+          resultado.style.display= "flex";
+          Boton_de_cuadro_de_resultado.style.display= "flex";
+
+          let desencriptado = new TextDecoder().decode(new Uint8Array(atob(texto_encriptado).split('').map(char => char.charCodeAt(0))));
+          document.getElementById("escritura_resultado").innerHTML = desencriptado;
+        }else{
+
+          campoVacio();
+        }
+    }
+
+  </script>
+                <!--Logo-->
+  <div class="logoimg">
+    <img class="logoimg" src="imagenes/EJL_1.png"/>
+  </div>
+                <!--Cuerpo-->
+
+    <body>
+                <!--Cuadros-->
+      <div class="cuadro_encriptador"> 
+        <div class="cuadro_general"> 
+                <!--Cuadro de escritura-->
+          <div class="cuadro_de_escritura"> 
+                <div class="escribir"> 
+                    <textarea name="textos_a_encriptar" class="textos_a_encriptar" id="textos_a_encriptar" cols="30" rows="13" placeholder="Ingresa el texto a encriptar o desencriptar"></textarea> 
+                </div> 
+                
+                <!--Boton del cuadro de escritura-->
+                <div class="Boton_de_cuadro_de_escritura"> 
+                    <button onclick="encriptar()" class="boton encriptar">Encriptar</button>
+                    <button onclick="desencriptar()" class="boton desencriptar">Desencriptar</button> 
+                </div> 
+          </div> 
+
+                <!--Cuadro de resultado-->
+          <div class="cuadro_de_resultado"> 
+                <div id="resultado" class="resultado"> 
+                    <textarea name="escritura_resultado" id="escritura_resultado" class="escritura_resultado" cols="30" rows="7"></textarea> 
+                </div> 
+
+                <!--Boton del cuadro de resultado-->
+                <div id="Boton_de_cuadro_de_resultado" class="Boton_de_cuadro_de_resultado"> 
+                    <input type="button" value="Copiar" class="boton copiar" onclick="copy()"> 
+                </div> 
+
+                <div id="sinencriptar" class="sinencriptar"> 
+                    <img src="Imagenes/goku.png" alt="" class="goku"> 
+                    <p class="textosinencriptar1">No hay mensaje<br>a encriptar</p> 
+                    <p class="textosinencriptar2">Nota: Por favor ingresa el texto que desees <br>encriptar o desencriptar en el cuadro de la izquierda.</p> 
+                </div> 
+          </div> 
+        </div> 
+      </div> 
+
+
+          <footer>
+        <div class="pie_de_pagina">
+            <div class="designed_EJL">
+                <p>Designed by <span class="nombreDesigned">JILELOCO - 2023</span> </p>
+            </div>
+
+            <div class="redesociales">
+                <a href="https://github.com/JILELOCO82"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ezequiel-jimenez-833771258"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+      </footer>
+
+    </body>
+  </html>

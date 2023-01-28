@@ -1,0 +1,254 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-image: linear-gradient(to right bottom, #080800, #5b6428, #abb684, #ebe8bc);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.logoimg{
+    display: inline-block;
+    margin: 0.5% 0 0 30%;
+    border-radius:  20px 20px;
+    opacity: 0.7;
+
+}
+.cuadro_encriptador{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.cuadro_general{
+    display: flex;
+    flex-flow: row nowrap;    
+    width: 1000px;
+    margin: 0 10px 20px 10px;
+}
+.cuadro_de_escritura{
+    flex: 10 1 auto;
+    background-color: rgba(153, 163, 66, 0.637);
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    margin-right: 20px;
+}
+.escribir{
+    height: 65%;
+    padding-left: 10%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.textos_a_encriptar{
+    width: 90%;
+    height: 80%;
+    font-size: 1.6rem;
+    font-family: 'Montserrat', sans-serif;
+    border-style:none;
+    resize: none;
+    outline: none;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.741);
+}
+.textos_a_encriptar::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}    
+.Boton_de_cuadro_de_escritura{
+    height: 35%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;  
+}         
+.boton{
+    width: 40%;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    padding: 6px;
+    height: 35px;
+    color: rgba(255, 255, 255, 0.696);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.boton:hover {
+    transform: scale(1.08);
+    box-shadow: 1px 1px 8px #000000ef;
+    transition: 1.5s transform;
+}            
+.boton:active {
+    background: #000000f6;
+}
+.encriptar{
+    background-color: #a86262;
+    margin-right: 45px;
+} 
+.desencriptar{
+    background-color: #7cb36e;
+}           
+.cuadro_de_resultado{
+    flex: 3 1 auto;
+    background-color: rgba(175, 228, 30, 0.432);
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.resultado{
+    height: 85%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.escritura_resultado{
+    width: 90%;
+    height: 90%;
+    padding: 10px 10px 10px 10px;
+    border-style: none;
+    resize: none;
+    outline: none;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.741);
+}
+.Boton_de_cuadro_de_resultado{
+     height: 45%;
+     font-size: 1rem;
+     display: flex;
+     flex-flow: row nowrap;
+     justify-content: center;
+     align-items: center;
+     display: none;
+}
+.copiar{
+    width: 80%;
+    background-color: #9c3c9c;
+}                
+.sinencriptar{
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.goku{
+    width: 255px;
+    margin: 10px;
+    opacity: 0.6;
+}
+.textosinencriptar1{
+    margin-top: 40px;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 1.5rem;
+}
+
+.textosinencriptar2{
+    margin-top:15px;
+    color: rgba(255, 255, 255, 0.708);
+    font-size: 10px;
+}            
+                
+ 
+                
+
+
+footer{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5vh;
+}
+
+.pie_de_pagina{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    background-image:linear-gradient(to right bottom, #000108, #130b5a, #8485b6, #cdbceb);
+    padding: 50px 50px;
+    width: 100%;
+    margin: 0px 10px;
+    border-radius: 10px;
+
+}
+        
+.designed_EJL{
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    color: rgba(255, 255, 255, 0.782);
+    font-style: oblique;
+    text-align: center; 
+}
+
+ .nombreDesigned{
+    font-family: 'Anton', 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: rgb(255, 255, 255);
+    font-style: unset;
+    font:bolder;
+    font-size: large;
+    letter-spacing: 0.01PX;           
+}
+        
+.redesociales{
+    margin-top: 15px;
+    text-align: left; 
+    font-family: 'Montserrat', sans-serif;
+}
+        
+.redesociales a{
+    display: inline-block;
+    color: white;
+    padding: 0 5px;
+    font-size: 35px;
+    text-decoration: none;
+}
+        
+                        
+@media all and (max-width:750px){
+
+    .cuadro_general{
+        flex-flow: column nowrap;
+    }
+
+    .cuadro_de_escritura{
+        margin: 0 0 20px 0;
+    }
+
+    .cuadro_de_resultado{
+        padding-bottom: 25px;
+    }
+
+}
+
+@media all and (max-width:450px){
+
+    .Boton_de_cuadro_de_escritura{
+        flex-flow: column nowrap;
+        margin: 10px 0px 25px 0px;
+    }
+
+    .boton{
+        width: 80%;
+    }
+    .logoimg{
+        width: 90%;
+        margin: 0.5% 0 0 5%;
+    }
+    .encriptar{
+        margin: 0px 0px 15px 0px ;
+    }
+
+    .cuadro_encriptador{
+        padding-left: 0;
+    }           
+}                   
+
